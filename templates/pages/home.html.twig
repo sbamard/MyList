@@ -1,5 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    coucou
+    <div class="container">
+        <h1>List of my amiibo max 10</h1>
+        {% for amiibo in amiibos %}
+            <div class="col-3">
+                <div class="card">
+                    <div class="card-body">
+                        <b>Name</b> : {{ amiibo.name }}<br>
+                        <b>Serie</b> : {{ amiibo.serie }}
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

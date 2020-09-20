@@ -33,9 +33,6 @@ class AmiiboController extends AbstractController
     public function index(): Response
     {
         $amiibo = $this->repository->findAll();
-        dump($amiibo);
-        $repository = $this->getDoctrine()->getRepository(Amiibo::class);
-        $amiibo = new Amiibo();
         return $this->render('amiibo/index.html.twig', [
             'current_menu' => 'amiibos'
         ]);
