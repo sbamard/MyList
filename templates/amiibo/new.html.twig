@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Amiibo{% endblock %}
+
+{% block body %}
+    <h1>Create new Amiibo</h1>
+
+
+
+    {{ include('amiibo/_form.html.twig') }}
+
+    <a href="{{ path('amiibo_index') }}">back to list</a>
+{% endblock %}
