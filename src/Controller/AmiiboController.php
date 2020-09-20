@@ -4,7 +4,6 @@
 namespace App\Controller;
 
 
-use App\Entity\Amiibo;
 use App\Repository\AmiiboRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,10 +31,10 @@ class AmiiboController extends AbstractController
      */
     public function index(): Response
     {
-        $amiibo = $this->repository->findAll();
+        $amiiboAll = $this->repository->findAll();
         return $this->render('amiibo/index.html.twig', [
-            'current_menu' => 'amiibos'
+            'current_menu' => 'amiibos',
+            'amiiboAll' => $amiiboAll
         ]);
     }
-
 }

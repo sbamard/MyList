@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container">
-        <h1>List of my amiibo max 10</h1>
-        {% for amiibo in amiibos %}
-            <div class="col-3">
+    <div class="container mt-4">
+    <div class="text-center">
+        <h1>Last entries</h1>
+    </div>
+        {% for amiibo in amiiboLast %}
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
                         <b>Name</b> : {{ amiibo.name }}<br>
                         <b>Serie</b> : {{ amiibo.serie }}
-
                     </div>
                 </div>
             </div>

@@ -27,6 +27,11 @@ class Amiibo
      */
     private $serie;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $last_update;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Amiibo
     public function setSerie(string $serie): self
     {
         $this->serie = $serie;
+
+        return $this;
+    }
+
+    public function getLastUpdate(): ?\DateTimeInterface
+    {
+        return $this->last_update;
+    }
+
+    public function setLastUpdate(?\DateTimeInterface $last_update): self
+    {
+        $this->last_update = $last_update;
 
         return $this;
     }

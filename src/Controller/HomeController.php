@@ -5,6 +5,7 @@ namespace App\Controller;
 
 
 use App\Repository\AmiiboRepository;
+use Doctrine\DBAL\DBALException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -23,9 +24,11 @@ class HomeController extends AbstractController
      */
     public function index(AmiiboRepository $repository): Response
     {
-        $amiibos = $repository->findQuery();
+        $amiibos = $repository->findLatestEntries();
+        dump($amiibos);
         return $this->render('pages/home.html.twig', [
-            'amiibos' => $amiibos
+            'current_menu' => 'home',
+            'amiiboLast' => $amiibos
         ]);
     }
 

@@ -20,12 +20,13 @@ class AmiiboRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return int|mixed|string
+     * @return array
      */
-    public function findQuery(): array
+    public function findLatestEntries(): array
     {
         return $this->createQueryBuilder('p')
             ->setMaxResults(10)
+            ->orderBy('p.last_update', 'DESC' )
             ->getQuery()
             ->getResult();
     }
