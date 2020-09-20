@@ -24,11 +24,31 @@ class HomeController extends AbstractController
      */
     public function index(AmiiboRepository $repository): Response
     {
-        $amiibos = $repository->findLatestEntries();
+        $amiibos = $repository->findLatestEntriesAmiibo();
         dump($amiibos);
         return $this->render('pages/home.html.twig', [
             'current_menu' => 'home',
             'amiiboLast' => $amiibos
+        ]);
+    }
+    /**
+     * @return Response
+     * @Route("/games", name="games")
+     */
+    public function games(): Response
+    {
+        return $this->render('pages/games.html.twig', [
+            'current_menu' => 'games'
+        ]);
+    }
+    /**
+     * @return Response
+     * @Route("/platforms", name="platforms")
+     */
+    public function platforms(): Response
+    {
+        return $this->render('pages/platforms.html.twig', [
+            'current_menu' => 'platforms'
         ]);
     }
 

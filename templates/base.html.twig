@@ -6,13 +6,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-
-</head>
+    <link rel="stylesheet" type="text/css" href=""></head>
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-image: linear-gradient(to right, #19093D, #645097);">
     <a class="navbar-brand" href="{{ path('home') }}">MyList</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -20,17 +20,22 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link {% if current_menu is defined and current_menu == 'amiibos' %} active {% endif %}"
-                   href="{{ path('amiibo.index') }}">Amiibo</a>
+                   href="{{ path('amiibo_index') }}">Amiibo</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {% if current_menu is defined and current_menu == 'games' %} active {% endif %}"
-                   href="{{ path('home') }}">Games</a>
+                   href="{{ path('games') }}">Games</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% if current_menu is defined and current_menu == 'platforms' %} active {% endif %}"
+                   href="{{ path('platforms') }}">Platforms</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link {% if current_menu is defined and current_menu != 'amiibos' %} d-none{% endif %}
                                     {% if current_menu is defined and current_menu == 'amiibos' %} active {% endif %}"
-                   href="">Add amiibo</a>
+                   href="{{ path('amiibo_new') }}">Add amiibo</a>
             </li>
+
         </ul>
         <form class="form-inline">
             <div class="animate__animated animate__swing animate__delay-2s" style="color: white">Work in progress
