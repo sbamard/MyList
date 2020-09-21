@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <link href="{{ asset('') }}">
+    <h1 class="text-center mt-4">Last entries</h1>
     <div class="container mt-4 animate__animated animate__fadeInUp ">
-    <div class="text-center">
-            <h1>Last entries</h1>
-        </div>
         {% for amiibo in amiiboLast %}
-            <div class="col-md-4 ">
-                <div class="card bg-light" style="margin: 3px">
+            <div class="col-md-4">
+                <div class="card jumbotron" >
+                    {% if amiibo.filename %}
+                        <img class="amiiboimg" src="/images/amiibo/{{ amiibo.filename }}" alt="card-img-top">
+                    {% endif %}
                     <div class="card-body">
+
                         <b>Name</b> : {{ amiibo.name }}<br>
                         <b>Serie</b> : {{ amiibo.serie }}<br>
                     </div>

@@ -17,11 +17,13 @@ class AmiiboController extends AbstractController
 {
     /**
      * @Route("/", name="amiibo_index", methods={"GET"})
+     * @param AmiiboRepository $amiiboRepository
+     * @return Response
      */
     public function index(AmiiboRepository $amiiboRepository): Response
     {
         return $this->render('amiibo/index.html.twig', [
-            'amiibos' => $amiiboRepository->findAll(),
+            'amiibos' => $amiiboRepository->findAllBySerie(),
             'current_menu' => 'amiibos'
         ]);
     }
@@ -83,7 +85,7 @@ class AmiiboController extends AbstractController
      */
     public function delete(Request $request, Amiibo $amiibo): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$amiibo->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $amiibo->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($amiibo);
             $entityManager->flush();

@@ -22,14 +22,21 @@ class AmiiboRepository extends ServiceEntityRepository
     /**
      * @return array
      */
-public function findLatestEntriesAmiibo(): array
+    public function findLatestEntriesAmiibo(): array
     {
         return $this->createQueryBuilder('p')
-            ->setMaxResults(10)
-            ->orderBy('p.last_update', 'DESC' )
+            ->setMaxResults(5)
+            ->orderBy('p.updated_at', 'DESC')
             ->getQuery()
             ->getResult();
     }
 
+    public function findAllBySerie(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.serie', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
 
 }

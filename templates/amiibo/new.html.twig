@@ -6,8 +6,17 @@
     <h1>Create new Amiibo</h1>
 
 
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    <div style="color: #718C00">
+        {{ form_row(form.serie) }}
+    </div>
+    {{ form_row(form.imageFile) }}
 
-    {{ include('amiibo/_form.html.twig') }}
+    {{ form_row(form.save) }}
+
+    {{ form_end(form) }}
+
 
     <a href="{{ path('amiibo_index') }}">back to list</a>
 {% endblock %}

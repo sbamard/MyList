@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Amiibo;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,9 +16,11 @@ class AmiiboType extends AbstractType
         $builder
             ->add('name')
             ->add('serie')
-            ->add('imageFile', FileType::class,[
+            ->add('imageFile', FileType::class, [
                 'required' => false
-            ]);
+            ])
+            ->add('save', SubmitType::class, ['label' => 'Add amiibo'])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
